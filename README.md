@@ -1,6 +1,6 @@
 # Bottom Bar Example
 
-![](https://github.com/markruzo/laundry_app/blob/main/assets/screens/cover1x5.png)
+![](https://github.com/markruzo/bottom_bar_example/blob/main/assets/images/cover.png)
 
 A new Flutter project.
 
