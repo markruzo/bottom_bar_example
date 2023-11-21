@@ -17,7 +17,9 @@ class FirstPage extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: ListView(
                   physics: const BouncingScrollPhysics(),
-                  children: const [Text('Content')],
+                  children: const [
+                    Text('Content'),
+                  ],
                 ),
               ),
             )
