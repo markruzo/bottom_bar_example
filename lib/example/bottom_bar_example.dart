@@ -2,8 +2,8 @@ import 'package:bottom_bar_example/example/screens/first_screen.dart';
 import 'package:bottom_bar_example/example/screens/fourth_screen.dart';
 import 'package:bottom_bar_example/example/screens/second_screen.dart';
 import 'package:bottom_bar_example/example/screens/third_screen.dart';
+import 'package:bottom_bar_example/example/widgets/bottom_bar_item.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class BottomBarExample extends StatefulWidget {
   const BottomBarExample({super.key});
@@ -14,12 +14,20 @@ class BottomBarExample extends StatefulWidget {
 
 class _BottomBarExampleState extends State<BottomBarExample> {
   int _selectedIndex = 0;
-  final List<Widget> _pages = [
-    const FirstScreen(),
-    const SecondScreen(),
-    const ThirdScreen(),
-    const FourthScreen(),
+  final List<String> _labels = ['Label 1', 'Label 2', 'Label 3', 'Label 4'];
+  final List<String> _iconPaths = [
+    'assets/icons/svg/x24/icon-placeholder.svg',
+    'assets/icons/svg/x24/icon-placeholder.svg',
+    'assets/icons/svg/x24/icon-placeholder.svg',
+    'assets/icons/svg/x24/icon-placeholder.svg',
   ];
+  final List<Widget> _pages = const [
+    FirstScreen(),
+    SecondScreen(),
+    ThirdScreen(),
+    FourthScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,154 +55,18 @@ class _BottomBarExampleState extends State<BottomBarExample> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _selectedIndex = 0;
-                            });
-                          },
-                          child: SizedBox(
-                            height: 24,
-                            width: 24,
-                            child: Center(
-                              child: SvgPicture.asset(
-                                'assets/icons/svg/x24/icon-placeholder.svg',
-                                height: 24,
-                                width: 24,
-                                colorFilter: ColorFilter.mode(
-                                  _selectedIndex == 0
-                                      ? Colors.black
-                                      : Colors.grey,
-                                  BlendMode.srcIn,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'Label',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: _selectedIndex == 0
-                                ? Colors.black
-                                : Colors.grey,
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _selectedIndex = 1;
-                            });
-                          },
-                          child: SizedBox(
-                            height: 24,
-                            width: 24,
-                            child: Center(
-                              child: SvgPicture.asset(
-                                'assets/icons/svg/x24/icon-placeholder.svg',
-                                height: 24,
-                                width: 24,
-                                colorFilter: ColorFilter.mode(
-                                  _selectedIndex == 1
-                                      ? Colors.black
-                                      : Colors.grey,
-                                  BlendMode.srcIn,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'Label',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: _selectedIndex == 1
-                                ? Colors.black
-                                : Colors.grey,
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _selectedIndex = 2;
-                            });
-                          },
-                          child: SizedBox(
-                            height: 24,
-                            width: 24,
-                            child: Center(
-                              child: SvgPicture.asset(
-                                'assets/icons/svg/x24/icon-placeholder.svg',
-                                height: 24,
-                                width: 24,
-                                colorFilter: ColorFilter.mode(
-                                  _selectedIndex == 2
-                                      ? Colors.black
-                                      : Colors.grey,
-                                  BlendMode.srcIn,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'Label',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: _selectedIndex == 2
-                                ? Colors.black
-                                : Colors.grey,
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _selectedIndex = 3;
-                            });
-                          },
-                          child: SizedBox(
-                            height: 24,
-                            width: 24,
-                            child: Center(
-                              child: SvgPicture.asset(
-                                'assets/icons/svg/x24/icon-placeholder.svg',
-                                height: 24,
-                                width: 24,
-                                colorFilter: ColorFilter.mode(
-                                  _selectedIndex == 3
-                                      ? Colors.black
-                                      : Colors.grey,
-                                  BlendMode.srcIn,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'Label',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: _selectedIndex == 3
-                                ? Colors.black
-                                : Colors.grey,
-                          ),
-                        )
-                      ],
-                    ),
+                    for (int i = 0; i < _pages.length; i++)
+                      BottomBarItem(
+                        index: i,
+                        selectedIndex: _selectedIndex,
+                        labels: _labels,
+                        iconPaths: _iconPaths,
+                        onTap: (index) {
+                          setState(() {
+                            _selectedIndex = index;
+                          });
+                        },
+                      ),
                   ],
                 ),
               ),
