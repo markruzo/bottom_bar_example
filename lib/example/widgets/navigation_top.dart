@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-// Icon > Title > Icon > Icon
-
 class TopNavigation extends StatelessWidget {
   const TopNavigation({
     super.key,
