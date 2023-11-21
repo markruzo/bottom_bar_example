@@ -14,12 +14,12 @@ class BottomBarExample extends StatefulWidget {
 
 class _BottomBarExampleState extends State<BottomBarExample> {
   int _selectedIndex = 0;
-  final List<String> _labels = ['Label 1', 'Label 2', 'Label 3', 'Label 4'];
+  final List<String> _labels = ['Home', 'Location', 'Support', 'User'];
   final List<String> _iconPaths = [
-    'assets/icons/svg/x24/icon-placeholder.svg',
-    'assets/icons/svg/x24/icon-placeholder.svg',
-    'assets/icons/svg/x24/icon-placeholder.svg',
-    'assets/icons/svg/x24/icon-placeholder.svg',
+    'assets/icons/svg/x24/icon-home.svg',
+    'assets/icons/svg/x24/icon-map-pin.svg',
+    'assets/icons/svg/x24/icon-question.svg',
+    'assets/icons/svg/x24/icon-user.svg',
   ];
   final List<Widget> _pages = const [
     FirstScreen(),
